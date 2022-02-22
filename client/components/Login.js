@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { authenticate } from "../store/user";
 
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const error = useSelector((state) => state.user.error);
   const dispatch = useDispatch();
 
   const handleChange = (e) => {
@@ -22,21 +23,26 @@ const Login = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <label htmlFor="username">Username</label>
-      <input
-        type="text"
-        name="username"
-        value={username}
-        onChange={handleChange}
-      />
-      <label htmlFor="password">Password</label>
-      <input
-        type="password"
-        name="password"
-        value={password}
-        onChange={handleChange}
-      />
-      <button type="submit">Log In</button>
+      <div className="form-element">
+        <label htmlFor="username">Username</label>
+        <input
+          type="text"
+          name="username"
+          value={username}
+          onChange={handleChange}
+        />
+      </div>
+      <div className="form-element">
+        <label htmlFor="password">Password</label>
+        <input
+          type="password"
+          name="password"
+          value={password}
+          onChange={handleChange}
+        />
+      </div>
+      <button type="submit">Login</button>
+      {error && error.response && <div> {error.response.data} </div>}
     </form>
   );
 };

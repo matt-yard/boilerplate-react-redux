@@ -23,11 +23,12 @@ const NavBar = () => {
           </div>
         ) : (
           <div>
-            <NavLink to="/login">Log In</NavLink>
+            <NavLink to="/login">Login</NavLink>
             <NavLink to="/signup">Signup</NavLink>
           </div>
         )}
       </nav>
+      <hr />
     </div>
   );
 };

@@ -12,7 +12,7 @@ export const me = () => async (dispatch) => {
     const { data: user } = await axios.get("/auth/me");
     return dispatch(setUser(user));
   } catch (error) {
-    return dispatch(setUser({ error: error }));
+    console.dir(error);
   }
 };
 
