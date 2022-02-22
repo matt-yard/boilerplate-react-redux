@@ -2,7 +2,7 @@ import axios from "axios";
 
 const SET_USER = "SET_USER";
 
-const setUser = (user) => ({
+export const setUser = (user) => ({
   type: SET_USER,
   user,
 });
