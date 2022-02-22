@@ -6,7 +6,7 @@ import Home from "../../client/components/Home";
 
 const adapter = new Adapter();
 enzyme.configure({ adapter });
-const dispatch = useDispatch();
+
 describe("Home", () => {
   let home;
 
